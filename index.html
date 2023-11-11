@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>Scat, an Online Card Game!</title>
+    <style>
+        .card-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        body {
+          background-color: black; 
+          font-family: 'Gabarito', sans-serif;
+          font-weight: bold; 
+        }
+
+        .card-image {
+          width: 125px;
+          height: 175px;
+          margin: 10px; 
+          cursor: pointer; 
+        }
+        .card-image:active {
+          opacity: 0.78; 
+        }
+        .js-deck, 
+        .deck {
+          cursor: pointer;
+        }
+        .js-deck:hover, 
+        .deck:hover {
+          opacity: 0.81; 
+        }
+        .js-deck:active, 
+        .deck:active {
+          opacity: 0.71; 
+        }
+
+        .rotate {
+          transform: rotate(90deg); 
+        }
+
+        .left {
+          margin-left: 30px; 
+        }
+        
+        .right {
+          margin-right: 30px; 
+        }
+
+        .the-middle {
+          margin-top: 150px; 
+        }
+
+        .left-cards,
+        .the-middle {
+          margin-right: 100px;
+        }
+
+        .middle-cards {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr 1fr;
+          direction: rtl; 
+        }
+
+        .js-results {
+          color: rgb(47, 202, 47); 
+          text-align: center; 
+          font-size: 30px; 
+        }
+        .fourth-card {
+          opacity: 0.7; 
+          cursor: default; 
+        }
+        .fourth-card:hover {
+          opacity: 0.7; 
+        }
+        .fourth-card:active {
+          opacity: 0.7; 
+        }
+        .player-turn-display {
+          color: white;
+          text-align: center; 
+          color: orange; 
+        }
+
+        .disappear {
+          display: none; 
+        }
+
+        .horizontal-container-color {
+          background-color: darkslategrey; 
+          border-radius: 50px; 
+          width: 375px; 
+          height: 175px; 
+          margin-top: 30px; 
+        }
+
+        .vertical-container-color {
+          background-color: darkslategrey; 
+          border-radius: 50px; 
+          width: 175px; 
+          height: 500px; 
+          margin-top: 50px; 
+        }
+
+        .js-replace-card, 
+        .js-discard {
+          font-family: 'Gabarito', sans-serif;
+          font-size: 16px; 
+          display: block; 
+          margin-top: 15px; 
+        }
+        .js-replace-card:hover, 
+        .js-discard:hover {
+          opacity: 0.95; 
+        }
+        .js-replace-card:active, 
+        .js-discard:active {
+          border: 2px solid rgb(78, 78, 78); 
+        }
+        .js-knock {
+          width: 70px; 
+          height: 70px; 
+          border: 5px solid yellow; 
+          border-radius: 55px; 
+          object-fit: cover; 
+          padding: 10px 10px; 
+          cursor: pointer; 
+          margin-top: 10px; 
+        }
+        .js-knock:hover {
+          opacity: 0.85; 
+        }
+        .js-knock:active {
+          opacity: 0.92; 
+        }
+        .tooltip {
+          background-color: white; 
+          display: inline-block; 
+          padding: 10px; 
+          opacity: 0; 
+          pointer-events: none; 
+          margin-left: 70px; 
+        }
+        .tooltip-activate {
+          margin-top: -50px; 
+        }
+        .tooltip-activate:hover .tooltip {
+          opacity: 1; 
+        }
+        .tooltip-gone {
+          background-color: black;
+        }
+        .question-mark {
+          width: 50px; 
+          position: absolute; 
+          right: 20px;
+          top: 20px; 
+        }
+        .js-restart {
+          font-family: 'Gabarito', sans-serif;
+          padding: 10px; 
+          font-size: 20px; 
+        }
+    </style>
+  </head>
+  <body>
+    <h1 class="player-turn-display"></h1>
+    <div class="js-results"></div>
+    <div class="card-container">
+      <div class="left-container">
+        <img class="js-knock js-first-button" src="knock-on-wood.png">
+        <div class="left-cards"></div>
+        <div class="first-world"></div>
+      </div>
+      <div class="the-middle">
+        <div class="tooltip-activate">
+          <p class="tooltip">Pick Up Card</p>
+          <div class="starting-card"></div>
+        </div>
+        
+        
+        <div class="middle-cards">
+          <img class="js-knock js-second-button" src="knock-on-wood.png">
+        </div>
+        <div class="second-world"></div>
+      </div>
+      
+      <div class="right-container">
+        <img class="js-knock js-third-button" src="knock-on-wood.png">
+        <div class="right-cards"></div>
+        <div class="third-world"></div>
+      </div>
+    </div>
+    <a target="_blank" href="https://www.youtube.com/watch?v=DV-mQDxD5gI">
+      <img class="question-mark" src="question-mark.png">
+    </a>
+    <script type="module" src="main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  </body>
+</html>
