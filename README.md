@@ -1,4 +1,4 @@
-3-Player Scat, hosted on vedpro259.github.io/scat-card-game
+3-Player Scat, hosted on [vedpro259.github.io/scat-card-game](https://vedpro259.github.io/scat-card-game/)
 
 Scat Original Rules vs. My New Rules 
 
